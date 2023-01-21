@@ -1,0 +1,194 @@
+prompt --application/pages/page_00100
+begin
+--   Manifest
+--     PAGE: 00100
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.10.15'
+,p_release=>'21.2.6'
+,p_default_workspace_id=>8164290293278438
+,p_default_application_id=>112
+,p_default_id_offset=>0
+,p_default_owner=>'APEXWS'
+);
+wwv_flow_api.create_page(
+ p_id=>100
+,p_user_interface_id=>wwv_flow_api.id(18102935048431748)
+,p_name=>'sign-up'
+,p_alias=>'SIGN-UP'
+,p_step_title=>'sign-up'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_page_is_public_y_n=>'Y'
+,p_protection_level=>'C'
+,p_last_updated_by=>'APEXWS'
+,p_last_upd_yyyymmddhh24miss=>'20220620115340'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(60955622442866373)
+,p_plug_name=>unistr('\D68C\C6D0\AC00\C785')
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_api.id(18005642741431696)
+,p_plug_display_sequence=>10
+,p_query_type=>'TABLE'
+,p_query_table=>'PUBLICUSER'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(30506425991289601)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_button_name=>'CANCEL'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(18078205424431735)
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_button_redirect_url=>'f?p=&APP_ID.:21:&SESSION.::&DEBUG.:::'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(30506855309289602)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_button_name=>'CREATE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(18078205424431735)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>unistr('\AC00\C785\D558\AE30')
+,p_button_position=>'CREATE'
+,p_database_action=>'INSERT'
+);
+wwv_flow_api.create_page_branch(
+ p_id=>wwv_flow_api.id(30511358425289605)
+,p_branch_name=>'Go login'
+,p_branch_action=>'f?p=&APP_ID.:10009:&SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_sequence=>1
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(30507624157289602)
+,p_name=>'P100_PUBLIC_ID'
+,p_source_data_type=>'VARCHAR2'
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_item_source_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_prompt=>unistr('\C544\C774\B514')
+,p_source=>'PUBLIC_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>wwv_flow_api.id(18075763389431734)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(30508090710289603)
+,p_name=>'P100_PW'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_item_source_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_prompt=>unistr('\BE44\BC00\BC88\D638')
+,p_source=>'PW'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_PASSWORD'
+,p_cSize=>60
+,p_cMaxlength=>255
+,p_field_template=>wwv_flow_api.id(18077055813431734)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(30508469908289603)
+,p_name=>'P100_PHONENUMBER'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_item_source_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_prompt=>unistr('\C804\D654\BC88\D638')
+,p_source=>'PHONENUMBER'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>13
+,p_field_template=>wwv_flow_api.id(18077055813431734)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(30508857541289603)
+,p_name=>'P100_PUBLIC_NAME'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_item_source_plug_id=>wwv_flow_api.id(60955622442866373)
+,p_prompt=>unistr('\C774\B984')
+,p_source=>'PUBLIC_NAME'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>20
+,p_field_template=>wwv_flow_api.id(18075763389431734)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_api.create_page_validation(
+ p_id=>wwv_flow_api.id(30297912204144035)
+,p_validation_name=>'phonenumbererror'
+,p_validation_sequence=>10
+,p_validation=>'P100_PHONENUMBER'
+,p_validation2=>'^\d{3}-\d{3,4}-\d{4}$'
+,p_validation_type=>'REGULAR_EXPRESSION'
+,p_error_message=>unistr('\C62C\BC14\B978 \D615\C2DD\C744 \C785\B825\D558\C138\C694. (\C608:010-1234-1234)')
+,p_associated_item=>wwv_flow_api.id(30508469908289603)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(30510852285289605)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_api.id(60955622442866373)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form sign up'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(30510407237289605)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_api.id(60955622442866373)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form sign up'
+);
+wwv_flow_api.component_end;
+end;
+/
